@@ -1,13 +1,10 @@
-//Arquivo de cabeçalho (Interface)
-
-//É um arquivo reutilizável no projeto e contém a declaração da classe, 
-//atributos e metodos (mas nao suas implementacoes)
+//Arquivo de cabeÃ§alho (Interface)
 
 using namespace std;
 
-class Pilha{
+class Pilha {
 
-private: //atributos visiveis somente na classe onde é utilizado. Por default já são privados!
+private: //atributos visiveis somente na classe onde Ã© utilizado. Por default jÃ¡ sÃ£o privados!
     int *itens;
     int topo;
     int maximo;
@@ -22,7 +19,7 @@ public: //visiveis a todas as classes do projeto
     int pop();
     string print();
     int qtdElementos();
-    int localiza(int v);
+    int localizaPosicao(int v);
     int contabilizaAcima(int v);
-    void repetidos();
+    int repetidos(int v);
 };
