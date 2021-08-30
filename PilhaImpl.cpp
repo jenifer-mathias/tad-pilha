@@ -106,7 +106,7 @@ int Pilha::contabilizaAcima(int num) {
             contador++;
         }
     }
-    return contador;
+    return contador - 1;
 }
 
 int Pilha::repetidos(int num) {
