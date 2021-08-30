@@ -102,11 +102,11 @@ int Pilha::contabilizaAcima(int num) {
     int contador = 0;
     if (empty()) return -1;
     for (i = 0; i <= topo; i++) {
-        if (itens[i] >= num) {
+        if (itens[i] > num) {
             contador++;
         }
     }
-    return contador - 1;
+    return contador;
 }
 
 int Pilha::repetidos(int num) {
