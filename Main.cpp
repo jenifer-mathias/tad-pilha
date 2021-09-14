@@ -1,4 +1,4 @@
-/* ******************************************************************
+/** ******************************************************************
  TAD Pilha
  Implementacao usando Classe
  Estrutura de Dados I
@@ -53,7 +53,6 @@ int main() {
             case 1: {
                 int x = p.qtdElementos();
                 cout << "\nA pilha contém " << x << " elemento";
-                cout << endl;
                 if (x > 1) cout << "s";
                 break;
             }
