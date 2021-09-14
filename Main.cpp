@@ -35,8 +35,8 @@ int main() {
         cout << "\n4 - verifica se determinado elemento está na pilha ";
         cout << "\n    e retorna sua posição em relação ao topo\n";
         cout << "\n5 - quantidade elementos acima de um determinado valor\n";
-        cout << "\n6 - retorna a quantidade de elementos repetidos para o número escolhido";
-        cout << "\n    (imprime a quantidade de ocorrências)\n";
+        cout << "\n6 - imprime os elementos da pilha e a quantidade";
+        cout << "\n    de ocorrências do número escolhido\n";
         cout << "\n7 - imprimir a pilha\n";
         cout << "\n\n_______________________________________________________________\n";
 
@@ -88,8 +88,9 @@ int main() {
                     break;
                 }
                 if (x > -1) {
-                    cout << "\nElemento localizado na posição em relação ao topo: " << x;
-                } else {
+                    cout << "\nElemento localizado na posição (em relação ao topo): " << x;
+                }
+                else {
                     cout << "\nElemento não localizado!";
                 }
                 break;
@@ -101,11 +102,11 @@ int main() {
                 int opc5;
                 cin >> opc5;
                 int x = p.contabilizaAcima(opc5);
-                if (x == -1) {
+                if (p.empty()) {
                     cout << "\nA pilha está vazia!";
                     break;
                 }
-                cout << "\n" << x << " elemento(s) acima do número escolhido";
+                cout << x;
                 break;
             }
 
@@ -113,17 +114,12 @@ int main() {
                 cout << "\nInforme um número: ";
                 int opc6;
                 cin >> opc6;
-                int x = p.repetidos(opc6);
-                if (x == -1) {
-                    cout << "\nA pilha está vazia!";
-                    break;
-                }
-                cout << "\nQuantidade de elementos repetidos: " << x;
+                p.repetidos(opc6);
                 break;
             }
 
             case 7: {
-                cout << p.print();
+                p.print(p);
                 break;
             }
 

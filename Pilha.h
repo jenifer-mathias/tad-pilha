@@ -17,9 +17,9 @@ public: //visiveis a todas as classes do projeto
     bool full();
     bool push(int);
     int pop();
-    string print();
+    void print(Pilha &pilha);
     int qtdElementos();
-    int localizaPosicao(int v);
-    int contabilizaAcima(int v);
-    int repetidos(int v);
+    int localizaPosicao(int num);
+    int contabilizaAcima(int num);
+    void repetidos(int num);
 };

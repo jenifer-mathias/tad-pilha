@@ -22,14 +22,14 @@ bool Pilha::empty() {
 
 /**
  * Pilha cheia
- */
+*/
 bool Pilha::full() {
     return topo == maximo - 1;
 }
 
 /**
  * Insere um elemento na pilha.
- */
+*/
 bool Pilha::push(int elem) {
     if (full()) {
         cout << "\nA pilha está cheia!\n";
@@ -42,7 +42,7 @@ bool Pilha::push(int elem) {
 
 /**
  * Remove um elemento da pilha.
- */
+*/
 int Pilha::pop() {
     if (empty()) return -1;
     int elem = itens[topo];
@@ -52,26 +52,27 @@ int Pilha::pop() {
 
 /**
  * Retorna uma string com o conteúdo da pilha impressa
- */
-string Pilha::print() {
-    stringstream ss;
-    ss << "";
-    if (empty()) {
-        ss << "A pilha está vazia.";
+*/
+void Pilha::print(Pilha &pilha) {
+    Pilha aux(topo + 1);
+    int dado;
+    if (pilha.qtdElementos() == 0) {
+        cout << "A pilha está vazia!" << endl;
     } else {
         cout << "\n\nPilha:" << endl;
-        for (int i = topo; i >= 0; i--) {
-            if (i == topo) {
-                ss << " " << itens[i] << "  <-- Topo\n";
-            } else ss << " " << itens[i] << "\n";
+        for (int i = pilha.topo; i >= 0; i--) {
+            dado = pilha.pop(); //tira da pilha original
+            cout << dado << endl; //imprime
+            aux.push(dado);//guarda na pilha auxiliar
+        }
+        //acabou de imprimir? volta os dados para a pilha original
+        for (int i = aux.topo; i >= 0; i--) {
+            dado = aux.pop(); //tira da pilha auxiliar
+            pilha.push(dado);//insere na pilha original
         }
     }
-    return ss.str();
 }
 
-/**
-Retorna a quantidade de elementos da pilha
-*/
 int Pilha::qtdElementos() {
     return topo + 1;
 }
@@ -109,14 +110,29 @@ int Pilha::contabilizaAcima(int num) {
     return contador;
 }
 
-int Pilha::repetidos(int num) {
+void Pilha::repetidos(int num) {
     int contador = 0;
     int i;
-    if (empty()) return -1;
-    for (i = 0; i <= topo; i++) {
-        if (itens[i] == num) {
-            contador++;
+    Pilha aux(topo + 1);
+    int dado;
+    if (qtdElementos() == 0) {
+        cout << "A pilha está vazia!" << endl;
+    } else {
+        cout << "\nPilha:" << endl;
+        for (i = topo; i >= 0; i--) {
+            if (itens[topo] == num) {
+                contador++;
+            }
+            dado = pop(); //tira da pilha original
+            cout << dado << endl; //imprime
+            aux.push(dado);//guarda na pilha auxiliar
+        }
+        cout << "\nNúmero de recorrências que aparece o número " << num << ": ";
+        cout << contador << endl; //imprime recorrências
+        // volta os dados para a pilha original
+        for (i = aux.topo; i >= 0; i--) {
+            dado = aux.pop(); //tira da pilha auxiliar
+            push(dado); //insere na pilha original
         }
     }
-    return contador;
 }
