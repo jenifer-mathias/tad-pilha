@@ -90,12 +90,11 @@ int main() {
                 if (x > -1) {
                     cout << "\nElemento localizado na posição (em relação ao topo): " << x;
                 }
-                else {
+                if (x == -2) {
                     cout << "\nElemento não localizado!";
                 }
                 break;
             }
-
 
             case 5: {
                 cout << "\nInforme o valor: ";

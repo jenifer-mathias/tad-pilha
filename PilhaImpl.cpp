@@ -83,31 +83,58 @@ Se a pilha estiver vazia, retorna -1;
 se o elemento nao estiver na pilha, retorna 0.
 se estiver, retorna sua posição em relação ao topo. (Retorna somente a primeira ocorrência).
 */
-int Pilha::localizaPosicao(int num) {
+int Pilha::localizaPosicao(int v) {
+    Pilha aux(maximo);
+    int cont = 0;
     int i;
-    int posicao;
-    if (empty()) return -1;
-    for (i = 0; i <= topo; i++) {
-        if (itens[i] == num) {
-            posicao = i;
+    int dado;
+    if (empty()) {
+        return -1; //verifica se a pilha ja veio vazia
+    } else {
+        //vai esvaziando a pilha até achar o elemento
+        while (!empty()) {
+            int valor = pop();
+            aux.push(valor);
+            if (valor == v) {
+                while (!aux.empty()) {
+                    valor = aux.pop();
+                    push(valor);
+                }
+                return cont;
+            }
+            cont++; //o cont começa com o valor 1 pois caso o topo fosse o valor para ser localizado,
+            // o programa retornaria zero(que seria o correto, ja que a distancia
+            // do topo em relação ao topo é zero), porém zero foi destinado ao caso de não existir na pilha
         }
+
     }
-    return topo - posicao;
+    for (i = aux.topo; i >= 0; i--) {
+        dado = aux.pop(); //tira da pilha auxiliar
+        push(dado); //insere na pilha original
+    }
+    return -2; // passou pelo laco for e nao achou
 }
 
 /**
 Conta elementos maiores que determinado valor.
 */
-int Pilha::contabilizaAcima(int num) {
-    int i;
-    int contador = 0;
-    if (empty()) return -1;
-    for (i = 0; i <= topo; i++) {
-        if (itens[i] > num) {
-            contador++;
+int Pilha::contabilizaAcima(int v) {
+    Pilha aux(maximo);
+    int qtd = 0;
+    int valor;
+    while (!empty()) {
+        valor = pop();
+        aux.push(valor);
+        if (valor > v) {
+            qtd++;
         }
     }
-    return contador;
+    while (!aux.empty()) {
+        valor = aux.pop();
+        push(valor);
+    }
+    cout << "Quantidade de valores acima do número escolhido: ";
+    return qtd;
 }
 
 void Pilha::repetidos(int num) {
