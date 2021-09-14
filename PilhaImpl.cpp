@@ -80,7 +80,7 @@ int Pilha::qtdElementos() {
 /**
 Verifica se um elemento está na pilha
 Se a pilha estiver vazia, retorna -1;
-se o elemento nao estiver na pilha, retorna 0.
+se o elemento nao estiver na pilha, retorna -2.
 se estiver, retorna sua posição em relação ao topo. (Retorna somente a primeira ocorrência).
 */
 int Pilha::localizaPosicao(int v) {
