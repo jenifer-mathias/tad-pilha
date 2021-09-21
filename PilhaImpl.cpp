@@ -89,7 +89,7 @@ int Pilha::localizaPosicao(int v) {
     int i;
     int dado;
     if (empty()) {
-        return -1; //verifica se a pilha ja veio vazia
+        return -1; //verifica se a pilha já veio vazia
     } else {
         //vai esvaziando a pilha até achar o elemento
         while (!empty()) {
@@ -103,7 +103,7 @@ int Pilha::localizaPosicao(int v) {
                 return cont;
             }
             cont++; //o cont começa com o valor 1 pois caso o topo fosse o valor para ser localizado,
-            // o programa retornaria zero(que seria o correto, ja que a distancia
+            // o programa retornaria zero (que seria o correto, ja que a distância
             // do topo em relação ao topo é zero), porém zero foi destinado ao caso de não existir na pilha
         }
 
@@ -146,13 +146,13 @@ void Pilha::repetidos(int num) {
         cout << "A pilha está vazia!" << endl;
     } else {
         cout << "\nPilha:" << endl;
-        for (i = topo; i >= 0; i--) {
-            if (itens[topo] == num) {
-                contador++;
-            }
+        while (!empty()) {
             dado = pop(); //tira da pilha original
             cout << dado << endl; //imprime
             aux.push(dado);//guarda na pilha auxiliar
+            if (dado == num) {
+                contador++;
+            }
         }
         cout << "\nNúmero de recorrências que aparece o número " << num << ": ";
         cout << contador << endl; //imprime recorrências
