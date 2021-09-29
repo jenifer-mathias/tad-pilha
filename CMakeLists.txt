@@ -6,7 +6,9 @@ set(CMAKE_CXX_STANDARD 14)
 include_directories(.)
 
 add_executable(
+        tad_pilha
         Main.cpp
-        Pilha.h
         PilhaImpl.cpp
+        Pilha.h
 )
+
