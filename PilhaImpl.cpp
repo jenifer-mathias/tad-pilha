@@ -67,8 +67,8 @@ void Pilha::print(Pilha &pilha) {
         }
         //acabou de imprimir? volta os dados para a pilha original
         for (int i = aux.topo; i >= 0; i--) {
-            dado = aux.pop(); //tira da pilha auxiliar
-            pilha.push(dado);//insere na pilha original
+            dado = aux.pop();
+            pilha.push(dado);
         }
     }
 }
@@ -102,17 +102,15 @@ int Pilha::localizaPosicao(int v) {
                 }
                 return cont;
             }
-            cont++; //o cont começa com o valor 1 pois caso o topo fosse o valor para ser localizado,
-            // o programa retornaria zero (que seria o correto, ja que a distância
-            // do topo em relação ao topo é zero), porém zero foi destinado ao caso de não existir na pilha
+            cont++;
         }
 
     }
     for (i = aux.topo; i >= 0; i--) {
-        dado = aux.pop(); //tira da pilha auxiliar
-        push(dado); //insere na pilha original
+        dado = aux.pop();
+        push(dado);
     }
-    return -2; // passou pelo laco for e nao achou
+    return -2;
 }
 
 /**
